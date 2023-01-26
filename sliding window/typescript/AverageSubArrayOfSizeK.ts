@@ -1,5 +1,5 @@
 //function to find the average of numbers in all sub-arrays of size k
-const AverageSubArrayOfSizeK = (k: number, array: number[]) => {
+const AverageSubArrayOfSizeK = (k: number, array: number[]) : number[] => {
     let windowStart = 0;
     let windowSum = 0;
     let result: number[] = [];
