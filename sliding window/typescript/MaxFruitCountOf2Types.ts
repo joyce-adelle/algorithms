@@ -8,11 +8,12 @@ function totalFruit(fruits: number[]): number {
         fruitLengthMap.set(fruits[windowEnd], (fruitLengthMap.get(fruits[windowEnd]) ?? 0) + 1);
 
         while (fruitLengthMap.size > 2) {
-            let fruit = fruitLengthMap.get(fruits[windowStart]) ?? 0;
-            fruit > 1 ?
-                fruitLengthMap.set(fruits[windowStart], (fruitLengthMap.get(fruits[windowStart]) ?? 0) - 1)
+            let fruit = fruits[windowStart];
+            let fruitLength = fruitLengthMap.get(fruit) ?? 0;
+            fruitLength > 1 ?
+                fruitLengthMap.set(fruit, fruitLength - 1)
                 :
-                fruitLengthMap.delete(fruits[windowStart]);
+                fruitLengthMap.delete(fruit);
 
             windowStart++;
         }
