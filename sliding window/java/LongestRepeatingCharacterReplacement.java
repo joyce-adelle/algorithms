@@ -15,15 +15,16 @@ public class LongestRepeatingCharacterReplacement {
         int result = 0;
         int windowStart = 0;
         HashMap<Character, Integer> characterLength = new HashMap<>();
-        int maxRepeatingCharcterInWindowCount = 0;
+        int maxRepeatingCharacter = 0;
 
         for(int windowEnd = 0; windowEnd < string.length(); windowEnd++){
 
             char c = string.charAt(windowEnd);
             characterLength.put(c, characterLength.getOrDefault(c, 0) + 1);
-            maxRepeatingCharcterInWindowCount = Math.max(maxRepeatingCharcterInWindowCount, characterLength.get(c));
+            maxRepeatingCharacter = Math.max(maxRepeatingCharacter, characterLength.get(c));
+            System.out.println(maxRepeatingCharacter);
 
-            if(( windowEnd - windowStart + 1 - maxRepeatingCharcterInWindowCount) > k ) {
+            if(( windowEnd - windowStart + 1 - maxRepeatingCharacter) > k ) {
                 char f = string.charAt(windowStart);
                 characterLength.put(f, characterLength.get(f) - 1);
 
