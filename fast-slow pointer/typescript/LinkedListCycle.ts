@@ -1,13 +1,4 @@
-class ListNode {
-    value: number;
-    next: ListNode | null;
-
-    constructor(val?: number, next?: ListNode | null) {
-        this.value = (val ?? 0);
-        this.next = (next ?? null);
-    }
-
-}
+import ListNode from "./ListNode";
 
 const hasCycle = (head: ListNode | null): boolean => {
 
