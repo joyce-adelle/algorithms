@@ -23,4 +23,28 @@ public class MinSizeSubArraySum {
         }
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
+
+    // Valid algorithm but not optimal
+    public static int findMinSubArraySize(int s, int[] arr) {
+        int curWinSize = 0;
+        int min = Integer.MAX_VALUE;
+        int windowSum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            windowSum += arr[i];
+            curWinSize = 1;
+            int j = i + 1;
+            while (windowSum < s && j < arr.length) {
+                windowSum += arr[j];
+                curWinSize += 1;
+                j = j + 1;
+            }
+            if (windowSum >= s) {
+                min = Math.min(curWinSize, min);
+            }
+            windowSum = 0;
+        }
+
+        return min == Integer.MAX_VALUE ? 0 : min;
+    }
 }
