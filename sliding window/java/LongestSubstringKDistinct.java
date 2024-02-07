@@ -23,11 +23,12 @@ public class LongestSubstringKDistinct {
     
           while(characterLength.size() > k){
             char ch = str.charAt(windowStart);
-            characterLength.put(ch, characterLength.get(ch) - 1);
-    
-            if(characterLength.get(ch) <= 0){
+            int n = characterLength.get(ch);
+
+            if (n > 1)
+              characterLength.put(ch, n - 1);
+            else
               characterLength.remove(ch);
-            }
     
             windowStart++;
             windowLength--;
