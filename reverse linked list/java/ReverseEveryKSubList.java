@@ -23,16 +23,11 @@ public class ReverseEveryKSubList {
     public static ListNode reverseKSubList(ListNode head, int k) {
 
         ListNode curr = head;
-        ListNode headR = head;
-        
-        for (int i = 1; curr != null && curr.next != null; i = i + k) {
-            if (i == 1) {
-                headR = reverseSub(curr, i, i+k-1);
-            }
-            else curr = reverseSub(headR, i, i+k-1);
-            
-        }
+        ListNode headR = reverseSub(curr, 1,  k);
 
+        for (int i = 1 + k; curr != null && curr.next != null; i = i + k)
+             curr = reverseSub(headR, i, i+k-1);
+            
         return headR;
 
     }
